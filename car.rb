@@ -1,11 +1,22 @@
 class MyCar
-  attr_accessor :year, :color, :model, :speed, :on
+  attr_accessor :color, :model, :speed, :on
+  attr_reader :year
   def initialize(year, color, model)
     @year = year
     @color = color
     @model = model
     @speed = 0
     @on = 1
+  end
+  
+  def repaint(color)
+    self.color = color
+    puts "You changed your car's color to #{self.color}!"
+    puts "Mmm, sexy."
+  end
+
+  def look_at
+    puts "You gaze at the body of your #{self.year} #{self.model}. Its #{color} paint sparkles in the sunlight."
   end
 
   def speed_up
@@ -23,7 +34,7 @@ class MyCar
   end
 
   def shut_off
-    if self.on == 0
+    if self.on == 0 
       puts "Your car is already off."
     else
       self.on = 0
